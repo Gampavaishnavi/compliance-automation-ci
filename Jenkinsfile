@@ -14,6 +14,7 @@ pipeline {
                 sh '''
                 mkdir -p inspec_results
                 docker run --rm \
+                  -e CHEF_LICENSE=accept \
                   -v $(pwd):/work \
                   chef/inspec:latest \
                   exec /work/inspec_profiles/aws_compliance \
